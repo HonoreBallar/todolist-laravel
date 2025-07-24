@@ -32,6 +32,7 @@ COPY . .
 COPY --from=node-builder /app/public/build public/build
 
 # 🔑 Installation Laravel
+COPY .env.example .env
 RUN composer install --optimize-autoloader
 RUN php artisan key:generate
 
